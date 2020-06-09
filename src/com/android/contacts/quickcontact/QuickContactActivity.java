@@ -1,19 +1,19 @@
 /*
-
-* Copyright (C) 2009 The Android Open Source Project
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
+ * Copyright (C) 2009 The Android Open Source Project
+ * Copyright (C) 2020 The Calyx Institute
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 package com.android.contacts.quickcontact;
 
@@ -337,10 +337,22 @@ public class QuickContactActivity extends ContactsActivity {
      */
     private static final List<String> LEADING_MIMETYPES =
             Lists.newArrayList(
+                    // Signal
+                    "vnd.android.cursor.item/vnd.org.thoughtcrime.securesms.contact",
+                    "vnd.android.cursor.item/vnd.org.thoughtcrime.securesms.call",  // main call action last
+                    // WhatsApp
+                    "vnd.android.cursor.item/vnd.com.whatsapp.profile",
+                    "vnd.android.cursor.item/vnd.com.whatsapp.video.call",
+                    "vnd.android.cursor.item/vnd.com.whatsapp.voip.call",  // main call action last
                     Phone.CONTENT_ITEM_TYPE,
                     SipAddress.CONTENT_ITEM_TYPE,
                     Email.CONTENT_ITEM_TYPE,
                     StructuredPostal.CONTENT_ITEM_TYPE);
+    private static final String MIMETYPE_PREFIX_SIGNAL =
+            "vnd.android.cursor.item/vnd.org.thoughtcrime.securesms.";
+    private static final String MIMETYPE_PREFIX_WHATSAPP =
+            "vnd.android.cursor.item/vnd.com.whatsapp.";
+    private static final HashMap<String, Uri> callAccountUris = new HashMap<>();
 
     private static final List<String> SORTED_ABOUT_CARD_MIMETYPES =
             Lists.newArrayList(
@@ -1726,6 +1738,7 @@ public class QuickContactActivity extends ContactsActivity {
                         sBidiFormatter.unicodeWrap(
                                 phone.buildDataStringForDisplay(context, kind),
                                 TextDirectionHeuristics.LTR);
+                subHeader = res.getString(R.string.calling_account_not_encrypted);
                 entryContextMenuInfo =
                         new EntryContextMenuInfo(
                                 header,
@@ -1926,6 +1939,11 @@ public class QuickContactActivity extends ContactsActivity {
             return null;
         } else {
             // Custom DataItem
+            if (dataItem.getMimeType().startsWith(MIMETYPE_PREFIX_SIGNAL)) {
+                return signalDataItemToEntry(dataItem, context);
+            } else if (dataItem.getMimeType().startsWith(MIMETYPE_PREFIX_WHATSAPP)) {
+                return whatsAppDataItemToEntry(dataItem, context);
+            }
             header = dataItem.buildDataStringForDisplay(context, kind);
             text = kind.typeColumn;
             intent = new Intent(Intent.ACTION_VIEW);
@@ -2049,6 +2067,87 @@ public class QuickContactActivity extends ContactsActivity {
                 thirdExtras,
                 shouldApplyThirdIconColor,
                 iconResourceId);
+    }
+
+    private static Entry signalDataItemToEntry(DataItem dataItem, Context context) {
+        final String alternateMimeType =
+                "vnd.android.cursor.item/vnd.org.thoughtcrime.securesms.contact";
+        final String header = dataItem.buildDataStringForDisplay(context, dataItem.getDataKind());
+
+        return callAccountDataItemToEntry(dataItem, context, header, alternateMimeType, null);
+    }
+
+    private static Entry whatsAppDataItemToEntry(DataItem dataItem, Context context) {
+        final String alternateMimeType = "vnd.android.cursor.item/vnd.com.whatsapp.profile";
+        final String thirdMimeType = "vnd.android.cursor.item/vnd.com.whatsapp.video.call";
+
+        String header = dataItem.buildDataStringForDisplay(context, dataItem.getDataKind());
+        if (header.startsWith("Voice call")) header = header.replace("Voice call", "WhatsApp Call");
+        if (!header.contains("WhatsApp")) header = "WhatsApp " + header;
+
+        return callAccountDataItemToEntry(dataItem, context, header, alternateMimeType,
+                thirdMimeType);
+    }
+
+    private static Entry callAccountDataItemToEntry(DataItem dataItem, Context context,
+                String header, String alternateMimeType, String thirdMimeType) {
+        List<String> ignore = Lists.newArrayList(
+                alternateMimeType,  // ignore message action
+                thirdMimeType // ignore video call action
+        );
+        if (ignore.contains(dataItem.getMimeType())) {
+            // remember action for later, but don't create an entry for it now
+            Uri uri = ContentUris.withAppendedId(Data.CONTENT_URI, dataItem.getId());
+            callAccountUris.put(dataItem.getMimeType() + dataItem.getRawContactId(), uri);
+            return null;
+        }
+
+        final Resources res = context.getResources();
+        String text = res.getString(R.string.calling_account_encrypted);
+        Drawable textIcon = res.getDrawable(R.drawable.ic_baseline_lock);
+
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        final Uri uri = ContentUris.withAppendedId(Data.CONTENT_URI, dataItem.getId());
+        intent.setDataAndType(uri, dataItem.getMimeType());
+        intent.putExtra(EXTRA_ACTION_TYPE, ActionType.THIRD_PARTY);
+        intent.putExtra(EXTRA_THIRD_PARTY_ACTION, dataItem.getMimeType());
+
+        Drawable icon = ResolveCache.getInstance(context).getIcon(dataItem.getMimeType(), intent);
+        icon.mutate();
+
+        Drawable alternateIcon = null;
+        Intent alternateIntent = null;
+        Uri alternateUri = callAccountUris.get(alternateMimeType + dataItem.getRawContactId());
+        if (alternateUri != null) {
+            alternateIcon = res.getDrawable(R.drawable.quantum_ic_message_vd_theme_24);
+            alternateIntent = new Intent(Intent.ACTION_VIEW);
+            alternateIntent.setDataAndType(alternateUri, alternateMimeType);
+            alternateIntent.putExtra(EXTRA_ACTION_TYPE, ActionType.THIRD_PARTY);
+            alternateIntent.putExtra(EXTRA_THIRD_PARTY_ACTION, alternateMimeType);
+        }
+
+        Drawable thirdIcon = null;
+        Intent thirdIntent = null;
+        int thirdAction = Entry.ACTION_NONE;
+        Uri thirdUri = callAccountUris.get(thirdMimeType + dataItem.getRawContactId());
+        if (thirdUri != null) {
+            thirdIcon = res.getDrawable(R.drawable.quantum_ic_videocam_vd_theme_24);
+            thirdIntent = new Intent(Intent.ACTION_VIEW);
+            thirdIntent.setDataAndType(thirdUri, thirdMimeType);
+            thirdIntent.putExtra(EXTRA_ACTION_TYPE, ActionType.THIRD_PARTY);
+            thirdIntent.putExtra(EXTRA_THIRD_PARTY_ACTION, thirdMimeType);
+            thirdAction = Entry.ACTION_INTENT;
+        }
+
+        EntryContextMenuInfo entryContextMenuInfo = new EntryContextMenuInfo(header,
+                intent.getType(), dataItem.getMimeType(), dataItem.getId(),
+                dataItem.isSuperPrimary());
+
+        return new Entry((int) dataItem.getId(), icon, header, null, null, text, textIcon,
+                new SpannableString(""), intent, alternateIcon, alternateIntent,
+                new SpannableString(""), false, false,
+                entryContextMenuInfo, thirdIcon, thirdIntent, null, thirdAction,
+                null, true, 0);
     }
 
     private List<Entry> dataItemsToEntries(
