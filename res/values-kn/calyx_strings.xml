@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="calling_account_not_encrypted">ಆಡಿಯೋ ಪ್ರೈವೇಟ್ಇಲ್ಲ</string>
+    <string name="calling_account_encrypted">ಆಡಿಯೋ ಮತ್ತು ವೀಡಿಯೊ ಖಾಸಗಿಯಾಗಿದೆ</string>
+</resources>
