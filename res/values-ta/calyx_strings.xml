@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="calling_account_not_encrypted">கேட்பொலி தனிப்பட்டது அல்ல</string>
+    <string name="calling_account_encrypted">ஆடியோ மற்றும் வீடியோ தனிப்பட்டவை</string>
+</resources>
