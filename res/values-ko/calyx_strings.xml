@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="calling_account_not_encrypted">오디오는 비공개 상태가 아닙니다</string>
+    <string name="calling_account_encrypted">오디오와 비디오는 비공개 상태 입니다</string>
+</resources>
