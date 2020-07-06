@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="calling_account_not_encrypted">Zvuk není soukromý</string>
+    <string name="calling_account_encrypted">Zvuk i video jsou soukromé</string>
+</resources>
