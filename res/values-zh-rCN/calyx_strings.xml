@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="calling_account_not_encrypted">非私人音讯</string>
+    <string name="calling_account_encrypted">私人音讯和视频</string>
+</resources>
