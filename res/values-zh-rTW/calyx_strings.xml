@@ -1,2 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="calling_account_encrypted">影像是隱私的</string>
+    <string name="calling_account_not_encrypted">不是隱私的</string>
+</resources>
