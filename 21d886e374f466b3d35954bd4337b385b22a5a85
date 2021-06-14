@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e87b64b4_93b907fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-06-14T10:51:01Z",
+      "side": 1,
+      "message": "Not what I wanted to do, follow up commit is what we actually want.",
+      "revId": "21d886e374f466b3d35954bd4337b385b22a5a85",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
