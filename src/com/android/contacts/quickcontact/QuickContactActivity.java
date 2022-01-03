@@ -1828,8 +1828,8 @@ public class QuickContactActivity extends ContactsActivity {
                 thirdMimeType);
     }
 
-    private static Entry callAccountDataItemToEntry(DataItem dataItem, Context context, String header,
-                                                    String alternateMimeType, String thirdMimeType) {
+    private static Entry callAccountDataItemToEntry(DataItem dataItem, Context context,
+                String header, String alternateMimeType, String thirdMimeType) {
         List<String> ignore = Lists.newArrayList(
                 alternateMimeType,  // ignore message action
                 thirdMimeType // ignore video call action
@@ -1878,8 +1878,9 @@ public class QuickContactActivity extends ContactsActivity {
             thirdAction = Entry.ACTION_INTENT;
         }
 
-        EntryContextMenuInfo entryContextMenuInfo = new EntryContextMenuInfo(header, intent.getType(),
-                dataItem.getMimeType(), dataItem.getId(), dataItem.isSuperPrimary());
+        EntryContextMenuInfo entryContextMenuInfo = new EntryContextMenuInfo(header,
+                intent.getType(), dataItem.getMimeType(), dataItem.getId(),
+                dataItem.isSuperPrimary());
 
         return new Entry((int) dataItem.getId(), icon, header, null, null, text, textIcon,
                 new SpannableString(""), intent, alternateIcon, alternateIntent,
