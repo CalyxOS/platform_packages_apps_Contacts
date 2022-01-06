@@ -1,5 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="calling_account_encrypted"></string>
-    <string name="calling_account_not_encrypted"></string>
-</resources>
+<resources></resources>
