@@ -16,6 +16,23 @@
       "message": "Tried importing and exporting a sample vcf file without this permission and it works fine",
       "revId": "c609eedddd81d45df3cd238818dcea8a779456c8",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f2fc8fd_151ee2c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-09-23T13:47:40Z",
+      "side": 1,
+      "message": "Should send to Lineage, and also worth sending it to AOSP.",
+      "revId": "c609eedddd81d45df3cd238818dcea8a779456c8",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
