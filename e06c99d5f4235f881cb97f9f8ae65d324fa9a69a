@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96403ca8_4c5acc4a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000065
+      },
+      "writtenOn": "2022-09-23T13:42:15Z",
+      "side": 1,
+      "message": "vcf import fix: Ib75bce7112e03bd31c23d8be262234288c0407c0",
+      "revId": "e06c99d5f4235f881cb97f9f8ae65d324fa9a69a",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
