@@ -1,2 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="calling_account_encrypted">Audio and video are private</string>
+    <string name="calling_account_not_encrypted">Audio is not private</string>
+</resources>
