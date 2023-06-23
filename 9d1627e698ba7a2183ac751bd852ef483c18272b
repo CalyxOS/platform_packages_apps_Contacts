@@ -16,6 +16,24 @@
       "message": "atest CtsContactsProviderTestCases ContactsProviderTestCases\n\n1 failure:\n\n```\n[43/194] android.provider.cts.contacts.ContactsContract_ContactsTest#testContactQuery_localContactVisibleByDefault: FAILED (130ms)\n\nSTACKTRACE:\njunit.framework.AssertionFailedError: expected:\u003c1\u003e but was:\u003c0\u003e\n        at junit.framework.Assert.fail(Assert.java:50)\n        at junit.framework.Assert.failNotEquals(Assert.java:287)\n        at junit.framework.Assert.assertEquals(Assert.java:67)\n        at junit.framework.Assert.assertEquals(Assert.java:134)\n        at junit.framework.Assert.assertEquals(Assert.java:140)\n        at android.provider.cts.contacts.ContactsContract_ContactsTest.testContactQuery_localContactVisibleByDefault(ContactsContract_ContactsTest.java:349)\n```",
       "revId": "9d1627e698ba7a2183ac751bd852ef483c18272b",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be6c2c84_97bf9ccb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-06-23T18:07:28Z",
+      "side": 1,
+      "message": "All tests pass on prod 4.10.1 (aka without this patch)",
+      "parentUuid": "864063db_4dc1ed55",
+      "revId": "9d1627e698ba7a2183ac751bd852ef483c18272b",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
