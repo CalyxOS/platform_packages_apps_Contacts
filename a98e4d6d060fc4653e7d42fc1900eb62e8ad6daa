@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e914bf9_8c8ac7b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-07-26T01:35:34Z",
+      "side": 1,
+      "message": "Tested using:\n\n```\nBEGIN:VCARD\nVERSION:4.0\nN:Bloggs;Joe;;;\nFN:Joe Bloggs\nEMAIL;TYPE\u003dhome;PREF\u003d1:me@joebloggs.com\nTEL;TYPE\u003d\"cell,home\";PREF\u003d1:tel:+44 20 1234 5678\nADR;TYPE\u003dhome;PREF\u003d1:;;1 Trafalgar Square;London;;WC2N;United Kingdom\nURL;TYPE\u003dhome;PREF\u003d1:https://joebloggs.com\nIMPP;TYPE\u003dhome;PREF\u003d1:skype:joe.bloggs\nX-SOCIALPROFILE;TYPE\u003dhome;PREF\u003d1:twitter:https://twitter.com/joebloggs\nEND:VCARD\n```\n\nFrom https://alessandrorossini.org/the-sad-story-of-the-vcard-format-and-its-lack-of-interoperability/",
+      "revId": "a98e4d6d060fc4653e7d42fc1900eb62e8ad6daa",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
