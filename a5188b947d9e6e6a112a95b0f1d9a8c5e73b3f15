@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46ccf90c_8c1efcfc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-10-10T18:59:53Z",
+      "side": 1,
+      "message": "I\u0027m seeing two \"Device\" in the sidebar, and tapping either selects both. Just a visual glitch then, device contracts seem to work fine otherwise.\n\nNo other accounts present.",
+      "revId": "a5188b947d9e6e6a112a95b0f1d9a8c5e73b3f15",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
