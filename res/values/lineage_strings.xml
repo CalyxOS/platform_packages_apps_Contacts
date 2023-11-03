@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright (C) 2017 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2018 The LineageOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,15 +14,11 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
-    android:opacity="opaque">
-  <item android:drawable="@android:color/system_neutral1_0" />
-  <item
-      android:id="@+id/launchscreens_product_logo"
-      android:bottom="@dimen/launchscreens_product_logo_bottom">
-    <bitmap
-        android:gravity="center"
-        android:src="@drawable/product_logo_contacts_color_144" />
-  </item>
-</layer-list>
+    <!--Explanation with icon of Drawer in Contacts. Your medical information ie. Date of birth, Bloodtype, allergic details can be recorded for reference. -->
+    <string name="menu_emergency_information_txt">Emergency information</string>
+
+    <string name="call_via_template">Call via <xliff:g id="account">%1$s</xliff:g></string>
+
+</resources>
