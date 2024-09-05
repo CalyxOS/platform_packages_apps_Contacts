@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="calling_account_not_encrypted">Audio tidak rahsia</string>
+    <string name="calling_account_encrypted">Audio dan video adalah rahsia</string>
+</resources>

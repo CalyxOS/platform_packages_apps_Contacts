@@ -131,7 +131,7 @@ public class ContactsUnavailableFragment extends Fragment implements OnClickList
     public void onClick(View v) {
         final int id = v.getId();
         if (id == R.id.add_account_button) {
-            final Intent intent = ImplicitIntentsUtil.getIntentForAddingGoogleAccount();
+            final Intent intent = ImplicitIntentsUtil.getIntentForAddingAccount();
             ImplicitIntentsUtil.startActivityOutsideApp(getActivity(), intent);
 
         } else if (id == R.id.import_contacts_button) {

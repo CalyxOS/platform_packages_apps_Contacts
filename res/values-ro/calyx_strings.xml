@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="calling_account_encrypted">Sunetul si video sunt private</string>
+    <string name="calling_account_not_encrypted">Audio nu este privat</string>
+</resources>
