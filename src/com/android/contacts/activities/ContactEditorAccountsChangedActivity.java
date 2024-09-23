@@ -174,7 +174,8 @@ public class ContactEditorAccountsChangedActivity extends Activity
             view = null; // Only to make the compiler happy
             // If the user has 0 writable accounts, don't bother, let them continue editing
             // the contact as a phone-only local contact.
-            saveAccountAndReturnResult(AccountWithDataSet.getNullAccount());
+            saveAccountAndReturnResult(AccountWithDataSet.getLocalAccount(
+                    ContactEditorAccountsChangedActivity.this));;
             finish();
         }
 
