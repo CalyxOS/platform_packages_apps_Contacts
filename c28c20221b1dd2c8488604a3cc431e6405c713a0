@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b1c0aa5_7d31116f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-10-03T19:18:27Z",
+      "side": 1,
+      "message": "Still unsure about the conflict resolution, that\u0027s why I hadn\u0027t merged it last time too.",
+      "revId": "c28c20221b1dd2c8488604a3cc431e6405c713a0",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
