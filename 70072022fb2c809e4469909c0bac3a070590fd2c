@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a233a64_3699478a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-11-30T17:06:50Z",
+      "side": 1,
+      "message": "31129: Merge remote-tracking branch \u0027lineage/lineage-21.0\u0027 into staging/android14_merge-lineage-21.0 | https://review.calyxos.org/c/CalyxOS/platform_packages_apps_Contacts/+/31129",
+      "revId": "70072022fb2c809e4469909c0bac3a070590fd2c",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
