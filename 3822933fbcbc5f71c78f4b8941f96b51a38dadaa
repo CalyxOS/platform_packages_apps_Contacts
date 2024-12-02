@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4f780c8_19d4cbd0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2024-12-02T20:58:04Z",
+      "side": 1,
+      "message": "Let\u0027s just ignore the upstream commit for now. It does not affect CalyxOS.",
+      "revId": "3822933fbcbc5f71c78f4b8941f96b51a38dadaa",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
